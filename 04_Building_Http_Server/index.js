@@ -5,15 +5,22 @@ const url = require("url");
 const myServer = http.createServer((req,res)=>{
     if(req.url === '/favicon.ico') return res.end();
     const log = `${Date.now()} ${req.url}:New Requist recieved\n`;
-    const myUrl = 
+    const myUrl = url.parse(req.url,true);
+    console.log(myUrl);
     fs.appendFile("./test.txt",log,(err,data)=>{
-    switch(req.url){
-        case'/':res.end("Home page");
+    switch(myUrl.pathname){
+        case"/":
+        res.end("Home page");
         break;
-        case'/about':res.end("We are on about page");
+        case"/about":
+        const username = myUrl.query.myname;
+        res.end(`Hi, ${username}`);
         break;
+        case "/search":
+        const search = myUrl.query.search_query;
+        res.end("there is your result for" + search);
         default:
-            res.end("404 Not Found");
+        res.end("404 Not Found");
     }
     })
 
