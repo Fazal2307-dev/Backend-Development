@@ -1,11 +1,20 @@
 const http = require("http")
 const fs = require("fs");
+const url = require("url");
 
 const myServer = http.createServer((req,res)=>{
-    const log = `${Date.now()}:New Requist recieved\n`;
+    if(req.url === '/favicon.ico') return res.end();
+    const log = `${Date.now()} ${req.url}:New Requist recieved\n`;
+    const myUrl = 
     fs.appendFile("./test.txt",log,(err,data)=>{
-
-    res.end("Heelo form server");
+    switch(req.url){
+        case'/':res.end("Home page");
+        break;
+        case'/about':res.end("We are on about page");
+        break;
+        default:
+            res.end("404 Not Found");
+    }
     })
 
 })
