@@ -8,10 +8,12 @@ fs.writeFileSync("./contact.txt","fazal:+9199999999");
 // const result = fs.readFileSync("./contact.txt","utf-8")
 // console.log(result);
 //async
-fs.readFile("./contact.txt","utf-8",(err,result)=>{
-    if(err){
-        console.log("Error",err)
-    }else{
-        console.log(result);
-    }
-});
+// fs.readFile("./contact.txt","utf-8",(err,result)=>{
+//     if(err){
+//         console.log("Error",err)
+//     }else{
+//         console.log(result);
+//     }
+// });
+// fs.copyFileSync("./contact.txt","./contactCopy.txt")
+// console.log(fs.statSync("./contactCopy.txt").size,"kb");
