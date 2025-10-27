@@ -1,1 +1,4 @@
-console.log("Hey Fazal what are you doing these days ");
+const {add,sub} = require("./math.js");
+
+console.log("Mathematics value of add", add(4,6));
+console.log("Mathematics value of sub ",sub(6,4));
