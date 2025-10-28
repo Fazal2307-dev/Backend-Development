@@ -9,4 +9,4 @@ app.get("/about",(req,res)=>{
 app.get("/profile",(req,res)=>{
     return res.send("We created New Page")
 });
-app.listen(8000,()=>console.log("Serveer Started..."));
+app.listen(8000,()=>console.log("Server Started..."));
