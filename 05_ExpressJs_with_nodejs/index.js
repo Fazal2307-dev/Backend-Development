@@ -1,11 +1,9 @@
 const express = require("express");
-
 const app = express();
 app.get("/",(req,res)=>{
-    return res.send("Hello From Home Page")
-});
-app.get("/about",(req,res)=>{
-    return res.send(`you name is ${req.query.name}` );
+    res.send("Hello From Home Page");
 })
-
-app.listen(8000,()=>console.log("Server Started....."));
+app.get("/about",(req,res)=>{
+    res.send("Hello from about page")
+});
+app.listen(8000,()=>console.log("Serveer Started..."));
