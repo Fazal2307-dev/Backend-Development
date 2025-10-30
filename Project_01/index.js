@@ -32,6 +32,7 @@ return res.send("Welcome To HomePage")
 app.get("/api/users",(req,res)=>{
     res.setHeader("myname","Fazal")
     // console.log(users)
+    console.log(req.headers)
     return res.json(users)
 })
 //Dynamic Routing
