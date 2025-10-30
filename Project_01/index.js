@@ -30,9 +30,8 @@ app.get("/",(req,res) =>{
 return res.send("Welcome To HomePage")
 })
 app.get("/api/users",(req,res)=>{
-    res.setHeader("myname","Fazal")
-    // console.log(users)
-    console.log(req.headers)
+    res.setHeader("x-myName","Fazal");//custom header
+  //always add  x to custom
     return res.json(users)
 })
 //Dynamic Routing
