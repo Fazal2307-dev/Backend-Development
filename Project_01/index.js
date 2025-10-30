@@ -26,9 +26,11 @@ app.use((req,res,next)=>{
 
 //Routes
 app.get("/",(req,res) =>{
+    res.setHeader("myname","Fazal")
 return res.send("Welcome To HomePage")
 })
 app.get("/api/users",(req,res)=>{
+    res.setHeader("myname","Fazal")
     // console.log(users)
     return res.json(users)
 })
