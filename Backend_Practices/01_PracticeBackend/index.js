@@ -23,6 +23,6 @@ app.get("/Mentorships",(req,res)=>{
 app.get("/Practices",(req,res)=>{
     res.send("you are in Practices pages");
 })
-app.post("/")
+
 
 app.listen(8000,()=>console.log("Server started..."))
