@@ -1,8 +1,46 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 const users = require("./MOCK_DATA.json");
 const fs = require("fs");
 const PORT = 8000;
+
+//Connection
+mongoose.connect("mongodb://127.0.0.1:27017/youtube-app-1")
+.then(()=>console.log("Mongoodb Connnected"))
+.catch((err)=>console.log("Mongo error",err));
+
+
+//Schema
+const userSchema = new  mongoose.Schema({
+    firstName:{
+        type:String,
+        required:true,
+    },
+    lastName:{
+        type:String,
+    },
+    emai:{
+        type:String,
+        required:true,
+        unique:true,
+    },
+    Jobtitle:{
+        type:String
+    },
+    gender:{
+        type:String
+    }
+});
+
+const User = mongoose.model('user',userSchema);
+
+
+
+
+
+
+
 
 //MiddleWare-plugin
 app.use(express.urlencoded({extended:false}));
@@ -25,21 +63,21 @@ app.use((req,res,next)=>{
 // })
 
 //Routes
-app.get("/",(req,res) =>{
-    res.setHeader("myname","Fazal")
-return res.send("Welcome To HomePage")
-})
-app.get("/api/users",(req,res)=>{
-    res.setHeader("x-myName","Fazal");//custom header
-  //always add  x to custom
-    return res.json(users)
-})
-//Dynamic Routing
-app.get("/api/users/:id",(req,res)=>{
-    const id = Number(req.params.id);
-    const user = users.find((user) => user.id === id);
-   return  res.json(user);
-})
+// app.get("/",(req,res) =>{
+//     res.setHeader("myname","Fazal")
+// return res.send("Welcome To HomePage")
+// })
+// app.get("/api/users",(req,res)=>{
+//     res.setHeader("x-myName","Fazal");//custom header
+//   //always add  x to custom
+//     return res.json(users)
+// })
+// //Dynamic Routing
+// app.get("/api/users/:id",(req,res)=>{
+//     const id = Number(req.params.id);
+//     const user = users.find((user) => user.id === id);
+//    return  res.json(user);
+// })
 
 app.post("/api/users",(req,res)=>{
 //creating new users
