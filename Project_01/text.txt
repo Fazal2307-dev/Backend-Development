@@ -9,3 +9,9 @@ POST/users - create new user
 
 PATCH /users/1 - Edit the user  with id 1
 DELETE /user/1 - Delete the user with id 1
+
+
+Schema - Define the structrue
+    schema- Model
+    Using model we do crud operation
+    
